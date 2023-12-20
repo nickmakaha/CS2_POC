@@ -6,5 +6,10 @@ to working with CS2 when compared to CS:GO, first of all being that the process 
 
 This is still very barebones and only has about an hour of work put into it, but I plan to explore pattern-scanning, developing an aimbot from scratch, and a few other features before moving onto developing a kernel-driver interface for a new cheat.
 
+Update 12/20/2023:
+* Implemented rip-relative addressing for pattern-scanning.
+* Added simple get player position function
+* Extended Pymem to read vec_3d data types from memory
+
 
 I don't support the malicious usage of this code to gain any unfair advantages and it is solely for educational use.
