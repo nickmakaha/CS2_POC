@@ -128,7 +128,7 @@ class GH:
 
          
 
-         ent_list.append(Entity(controller_ptr, pawn_ptr, self.UT.get_bones(pawn_ptr), self.UT.get_pos(pawn_ptr), self.mem.read_string(controller_ptr + m_iszPlayerName, 256), self.mem.read_int(pawn_ptr + m_iTeamNum) ))
+         ent_list.append(Entity(controller_ptr, pawn_ptr, self.UT.get_bones(pawn_ptr), self.UT.get_pos(pawn_ptr), self.mem.read_string(controller_ptr + m_iszPlayerName, 256), self.UT.get_teamID(pawn_ptr) ))
      return ent_list
     
     def print_poses(self, entlist):
