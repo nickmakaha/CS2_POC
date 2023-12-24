@@ -11,5 +11,9 @@ Update 12/20/2023:
 * Added simple get player position function
 * Extended Pymem to read vec_3d data types from memory
 
+Update 12/24/2023:
+* Added an Entity class and now when I grab entity information I also store name, 3d coordinate position, teamNum, bone-matrices, etc...
+* This is so ugly and annoying to work with, I need to clean this code up and make it readable
+
 
 I don't support the malicious usage of this code to gain any unfair advantages and it is solely for educational use.
