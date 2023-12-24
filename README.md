@@ -18,4 +18,4 @@ Update 12/24/2023:
 
 I don't support the malicious usage of this code to gain any unfair advantages and it is solely for educational use.
 
-[!img](ex.png)
+![img](ex.png)
