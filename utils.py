@@ -16,12 +16,8 @@ class Utils:
     self.offsets = offsets
     self._client = pymem.process.module_from_name(self.mem.process_handle, "client.dll").lpBaseOfDll
     self.mex = []
-    #self.hack = _hack
-    self.draw = None
-    self.__draw_bons_a_list = []
-    self.__draw_bons_b_list = []
-    self.rect = []
     self.hwnd = self.GetHwndByPid(self.mem.process_id)
+
   def get_pos(self, entity_pawn):
     return [self.mem.read_float(entity_pawn + playerPos), self.mem.read_float(entity_pawn + playerPos+0x4), self.mem.read_float(entity_pawn + playerPos+0x8)]
 
@@ -61,6 +57,7 @@ class Utils:
             bones.append((x, y, z))
             bonearray += 0x20
         return bones
+        
   def __update_mex(self):
         self.mex = []
         addr = self._client+dwViewMatrix
