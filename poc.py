@@ -139,43 +139,9 @@ class GH:
             print(str(pos[0]) + ',' + str(pos[1]) + ',' + str(pos[2]))
 
     def drawTest(self):
-      Width = win32api.GetSystemMetrics(0)
-      Height = win32api.GetSystemMetrics(1)
-
-      pygame.init()
-      pygame.mixer.init()
-      pygame.display.set_caption("Overlay")
-      SetWindowPos = windll.user32.SetWindowPos
-      screen = pygame.display.set_mode((Width, Height))
-      clock = pygame.time.Clock()
-      alpha = 128
-      FPS = 60
-
-      bg_color = (0, 0, 0)
-      hwnd = pygame.display.get_wm_info()["window"]
-      win32gui.SetWindowLong(hwnd, win32con.GWL_EXSTYLE,
-         win32gui.GetWindowLong(hwnd, win32con.GWL_EXSTYLE) | win32con.WS_EX_LAYERED)
-      win32gui.SetLayeredWindowAttributes(hwnd, win32api.RGB(*bg_color), 0, win32con.LWA_COLORKEY)
-      win32gui.SetWindowPos(hwnd, win32con.HWND_TOPMOST, 0, 0, 0, 0,
-         win32con.SWP_NOMOVE | win32con.SWP_NOSIZE)
-
-      color = (160, 32, 240)
+    
 
       while(1):
-         clock.tick(FPS)
-         screen.fill(bg_color)
-         screen.set_alpha(128)
-         #pygame.draw.line(screen,color, 30,30)
-
-         view = self.UT.getViewMatrix()
-
-         entities_list = self.get_entities()
-        # print(entities_list)
-         print(len(entities_list))
-
-         for Entity in entities_list:
-            Entity.updateBones(self.UT.get_bones(Entity.pawnptr))
-            self.UT.draw_bones(Entity, win32api.RGB(200,200,200),2)
 
          if(keyboard.is_pressed("esc")):
                    break
