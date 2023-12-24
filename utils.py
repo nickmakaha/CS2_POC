@@ -2,7 +2,6 @@ import win32gui
 import win32con
 import win32process
 import pymem
-from gdi import *
 playerPos = (0x1224)
 dwViewAngles = 0x1880DD0
 dwViewMatrix = 0x1820160
@@ -95,40 +94,3 @@ class Utils:
   def get_teamID(self, entity):
     return self.mem.read_int(entity + m_iTeamNum)
 
-  def __push_draw_ab(self, a, b, update_mex: bool = False):
-        screen_a = self.world_to_screen(a, update_mex)
-        screen_b = self.world_to_screen(b, update_mex)
-        if len(screen_a) != 0 and len(screen_b) != 0:
-            if (screen_a[0] != 0.0 and screen_a[1] != 0.0) and (screen_b[0] != 0.0 and screen_b[1] != 0.0):
-                self.__draw_bons_a_list.append(screen_a)
-                self.__draw_bons_b_list.append(screen_b)
-
-  def draw_bones(self, ent_pawn, color, thickness):
-      #  self.hwnd = self.GetHwndByPid(self.mem.process_id)
-        self.draw = GDI(self.hwnd, hide=False)
-        self.__draw_bons_a_list.clear()
-        self.__draw_bons_b_list.clear()
-
-        self.__push_draw_ab(ent_pawn.bones[6], ent_pawn.bones[5], True)
-        self.__push_draw_ab(ent_pawn.bones[4], ent_pawn.bones[5])
-        self.__push_draw_ab(ent_pawn.bones[4], ent_pawn.bones[2])
-        self.__push_draw_ab(ent_pawn.bones[2], ent_pawn.bones[0])
-
-        self.__push_draw_ab(ent_pawn.bones[13], ent_pawn.bones[5])
-        self.__push_draw_ab(ent_pawn.bones[8], ent_pawn.bones[5])
-        self.__push_draw_ab(ent_pawn.bones[13], ent_pawn.bones[14])
-        self.__push_draw_ab(ent_pawn.bones[8], ent_pawn.bones[9])
-        self.__push_draw_ab(ent_pawn.bones[9], ent_pawn.bones[10])
-        self.__push_draw_ab(ent_pawn.bones[10], ent_pawn.bones[11])
-        self.__push_draw_ab(ent_pawn.bones[14], ent_pawn.bones[15])
-        self.__push_draw_ab(ent_pawn.bones[16], ent_pawn.bones[15])
-
-        self.__push_draw_ab(ent_pawn.bones[0], ent_pawn.bones[25])
-        self.__push_draw_ab(ent_pawn.bones[26], ent_pawn.bones[25])
-        self.__push_draw_ab(ent_pawn.bones[26], ent_pawn.bones[27])
-        self.__push_draw_ab(ent_pawn.bones[0], ent_pawn.bones[22])
-        self.__push_draw_ab(ent_pawn.bones[23], ent_pawn.bones[22])
-        self.__push_draw_ab(ent_pawn.bones[23], ent_pawn.bones[24])
-
-        self.draw.DrawLine(self.__draw_bons_a_list,
-                           self.__draw_bons_b_list, color, thickness)
