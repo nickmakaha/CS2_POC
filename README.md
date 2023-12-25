@@ -13,6 +13,7 @@ Update 12/20/2023:
 
 Update 12/24/2023:
 * Added an Entity class and now when I grab entity information I also store name, 3d coordinate position, teamNum, bone-matrices, etc...
+* Implemented function that grabs all entities in the game and stores that information in a list
 * This is so ugly and annoying to work with, I need to clean this code up and make it readable
 
 Next on my list:
