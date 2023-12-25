@@ -15,6 +15,10 @@ Update 12/24/2023:
 * Added an Entity class and now when I grab entity information I also store name, 3d coordinate position, teamNum, bone-matrices, etc...
 * This is so ugly and annoying to work with, I need to clean this code up and make it readable
 
+Next on my list:
+* Pattern scan for the rest of my offsets and generalize the rip-relative pattern scanning function so I can use it for all of them
+* Make working w2s function and check it works
+* Figure out what I'm going to draw my ESP with (pygame?)
 
 I don't support the malicious usage of this code to gain any unfair advantages and it is solely for educational use.
 
